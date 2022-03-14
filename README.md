@@ -3,6 +3,7 @@
   <img src="https://user-images.githubusercontent.com/4615775/51296069-8fa30780-19d7-11e9-9399-ace98ee439f0.png"/></a>
 </div>
 
+
 ## React Compound Slider
 
 Welcome to the future. React Compound Slider is a small slider component with no opinion about markup or styles.
