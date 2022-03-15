@@ -13,7 +13,7 @@ const serverOptions = {
   },
 };
 
-const PORT = process.env.RCS_PORT || 3000;
+const PORT = process.env.RCS_PORT || 4000;
 
 new WebpackDevServer(webpack(webpackConfig), serverOptions).listen(
   PORT,
