@@ -258,6 +258,7 @@ export class Slider<
   };
 
   onMouseDown = (e: MouseEvent, handleID: string) => {
+    console.log("Slider.tsx onMouseDown handleID: "+handleID);
     this.onStart(e, handleID, false);
   };
 
@@ -497,6 +498,7 @@ export class Slider<
       props: { onChange = noop, onSlideEnd = noop },
     } = this;
 
+    console.log("Slider.tsx onMouseUp activeHandleID: "+activeHandleID);
     onChange(handles.map((d) => d.val));
     onSlideEnd(
       handles.map((d) => d.val),
