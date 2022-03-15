@@ -295,7 +295,7 @@ export class Slider<
       isTouch ? this.addTouchEvents() : this.addMouseEvents();
     } else {
       this.setState({ activeHandleID: '' });
-      this.handleRailAndTrackClicks(e, isTouch);
+      //this.handleRailAndTrackClicks(e, isTouch); // storm
     }
   }
 
