@@ -936,7 +936,7 @@ var Slider = /*#__PURE__*/function (_PureComponent) {
     };
 
     _this.onMouseDown = function (e, handleID) {
-      console.log("Slider.tsx onMouseDown handleID: " + handleID);
+      console.log("Slider.tsx1 onMouseDown1 handleID: " + handleID);
 
       _this.onStart(e, handleID, false);
     };
@@ -1038,7 +1038,7 @@ var Slider = /*#__PURE__*/function (_PureComponent) {
           _assertThisInitialize22 = _assertThisInitialize20.onSlideEnd,
           onSlideEnd = _assertThisInitialize22 === void 0 ? noop : _assertThisInitialize22;
 
-      console.log("Slider.tsx onMouseUp activeHandleID: " + activeHandleID);
+      console.log("Slider.tsx1 onMouseUp activeHandleID: " + activeHandleID);
       onChange(handles.map(function (d) {
         return d.val;
       }));
@@ -1143,21 +1143,20 @@ var Slider = /*#__PURE__*/function (_PureComponent) {
       } else {
         this.setState({
           activeHandleID: ''
-        }); //this.handleRailAndTrackClicks(e, isTouch); // storm
+        });
+        this.handleRailAndTrackClicks(e, isTouch); // storm
       }
     }
   }, {
     key: "handleRailAndTrackClicks",
     value: function handleRailAndTrackClicks(e, isTouch) {
-      var _this2 = this;
 
-      var _this$state = this.state,
-          curr = _this$state.handles,
-          pixelToStep = _this$state.pixelToStep,
+      var _this$state = this.state;
+          _this$state.handles;
+          var pixelToStep = _this$state.pixelToStep,
           _this$props = this.props,
-          vertical = _this$props.vertical,
-          _this$props$reversed = _this$props.reversed,
-          reversed = _this$props$reversed === void 0 ? false : _this$props$reversed;
+          vertical = _this$props.vertical;
+          _this$props.reversed;
       var slider = this.slider; // double check the dimensions of the slider
       // @ts-ignore
 
@@ -1171,34 +1170,11 @@ var Slider = /*#__PURE__*/function (_PureComponent) {
       } else {
         // @ts-ignore
         updateValue = pixelToStep.getValue(vertical ? e.clientY : e.pageX);
-      } // find the closest handle key
+      }
 
-
-      var updateKey = '';
-      var minDiff = Infinity;
-
-      for (var i = 0; i < curr.length; i++) {
-        var _curr$i = curr[i],
-            key = _curr$i.key,
-            val = _curr$i.val;
-        var diff = Math.abs(val - updateValue);
-
-        if (diff < minDiff) {
-          updateKey = key;
-          minDiff = diff;
-        }
-      } // generate a "candidate" set of values - a suggestion of what to do
-
-
-      var nextHandles = getUpdatedHandles(curr, updateKey, updateValue, reversed); // submit the candidate values
-
-      this.setState({
-        activeHandleID: updateKey
-      }, function () {
-        _this2.submitUpdate(nextHandles, true);
-
-        isTouch ? _this2.addTouchEvents() : _this2.addMouseEvents();
-      });
+      console.log("Slider.tsx1 handleRailAndTrackClicks updateValue: " + updateValue);
+      this.props.onUpdate([updateValue]);
+      return; // find the closest handle key
     }
   }, {
     key: "addMouseEvents",

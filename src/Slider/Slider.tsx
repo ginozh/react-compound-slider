@@ -258,7 +258,7 @@ export class Slider<
   };
 
   onMouseDown = (e: MouseEvent, handleID: string) => {
-    console.log("Slider.tsx onMouseDown handleID: "+handleID);
+    console.log("Slider.tsx1 onMouseDown1 handleID: "+handleID);
     this.onStart(e, handleID, false);
   };
 
@@ -295,7 +295,7 @@ export class Slider<
       isTouch ? this.addTouchEvents() : this.addMouseEvents();
     } else {
       this.setState({ activeHandleID: '' });
-      //this.handleRailAndTrackClicks(e, isTouch); // storm
+      this.handleRailAndTrackClicks(e, isTouch); // storm
     }
   }
 
@@ -320,6 +320,8 @@ export class Slider<
       // @ts-ignore
       updateValue = pixelToStep.getValue(vertical ? e.clientY : e.pageX);
     }
+    console.log("Slider.tsx1 handleRailAndTrackClicks updateValue: "+updateValue);
+    this.props.onUpdate([updateValue]);return;
 
     // find the closest handle key
     let updateKey = '';
@@ -498,7 +500,7 @@ export class Slider<
       props: { onChange = noop, onSlideEnd = noop },
     } = this;
 
-    console.log("Slider.tsx onMouseUp activeHandleID: "+activeHandleID);
+    console.log("Slider.tsx1 onMouseUp activeHandleID: "+activeHandleID);
     onChange(handles.map((d) => d.val));
     onSlideEnd(
       handles.map((d) => d.val),
